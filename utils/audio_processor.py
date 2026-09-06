@@ -85,20 +85,20 @@ def download_youtube_audio(url: str) -> str:
         "quiet": False,
         "noplaylist": True,
         "keepvideo": False,
-        # Bypass YouTube "The page needs to be reloaded" SABR error
+        
         "extractor_args": {
             "youtube": {
                 "player_client": ["tv", "mweb", "android", "ios"]
             }
         },
-        # Extract audio using FFmpeg
+       
         "postprocessors": [
             {
                 "key": "FFmpegExtractAudio",
                 "preferredcodec": "wav",
             }
         ],
-        # Enforce 1 channel (mono) and 16000 Hz sample rate during extraction
+        
         "postprocessor_args": {
             "ExtractAudio": ["-ac", "1", "-ar", "16000"]
         },
@@ -107,7 +107,7 @@ def download_youtube_audio(url: str) -> str:
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
         filename = ydl.prepare_filename(info)
-        # Safely replace any extension (.webm, .mp4, .m4a) with .wav
+      
         wav_path = os.path.splitext(filename)[0] + ".wav"
         return wav_path
 
@@ -116,7 +116,7 @@ def convert_to_wav(input_path: str) -> str:
     """Converts local audio/video files to 16kHz Mono WAV using pydub."""
     output_path = os.path.splitext(input_path)[0] + "_converted.wav"
     audio = AudioSegment.from_file(input_path)
-    audio = audio.set_channels(1).set_frame_rate(16000)  # 16kHz Mono
+    audio = audio.set_channels(1).set_frame_rate(16000)  
     audio.export(output_path, format="wav")
     return output_path
 

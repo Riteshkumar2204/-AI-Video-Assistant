@@ -5,7 +5,7 @@ import whisper
 from dotenv import load_dotenv
 from pydub import AudioSegment
 
-# Automatically load environment variables from .env
+
 load_dotenv()
 
 SARVAM_PIECE_SECONDS = 25
