@@ -439,7 +439,7 @@ if st.session_state.result:
         </div>
     </div>""", unsafe_allow_html=True)
 
-    # Top row: summary + transcript
+   
     col1, col2 = st.columns([3, 2], gap="medium")
 
     with col1:
