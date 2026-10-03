@@ -527,7 +527,7 @@ if st.session_state.result:
             st.rerun()
 
 else:
-    # Empty state
+    
     st.markdown("""
     <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5rem 2rem;text-align:center">
         <div style="font-size:4rem;margin-bottom:1rem">🎬</div>
