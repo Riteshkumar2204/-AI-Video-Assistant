@@ -62,7 +62,7 @@ def transcribe_chunk_sarvam(chunk_path: str) -> str:
     piece_ms = SARVAM_PIECE_SECONDS * 1000
 
     full_text = ""
-    total_pieces = (len(audio) + piece_ms - 1) // piece_ms
+    total_pieces = (len(audio) + piece_ms - 1) 
 
     for i, start in enumerate(range(0, len(audio), piece_ms)):
         piece = audio[start : start + piece_ms]
