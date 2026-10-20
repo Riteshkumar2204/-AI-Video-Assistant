@@ -3,3 +3,4 @@ downloads/
 vector_db/
 __pycache__/
 .venv/
+.venv312/
